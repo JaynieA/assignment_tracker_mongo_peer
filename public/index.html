@@ -34,17 +34,18 @@
       </div>
       <button type="submit" ng-click="postAssignment()" class="btn btn-primary">Add Assignment</button>
     </form>
+    <hr>
     <div ng-repeat="assignment in assignmentArray">
-      <p>{{assignment.assignment_name}}</p>
-      <p>{{assignment.student_name}}</p>
-      <p>{{assignment.score}}</p>
-      <p>{{assignment.date_completed | date:'MM/dd/yyyy'}}</p>
+      <p><span class="bold">Assignment:</span> {{assignment.assignment_name}}</p>
+      <p><span class="bold">Student:</span> {{assignment.student_name}}</p>
+      <p><span class="bold">Score:</span> {{assignment.score}}</p>
+      <p><span class="bold">Date Completed:</span> {{assignment.date_completed | date:'MM/dd/yyyy'}}</p>
       <button type="button" ng-click="deleteAssignment(assignment._id)" class="btn btn-danger">Delete</button>
       <button type="button" ng-click="showModifyForm(assignment._id)" class="btn btn-warning">Modify Score</button>
       <form ng-show="showMe === assignment._id" class="form-inline">
         <label>Score:</label>
-        <input type="number" ng-model="assignment.modifiedScore" class="form-control">
-        <button type="submit" ng-click="modifyAssignment(assignment._id, assignment.modifiedScore)" class="btn btn-warning">Change Score</button>
+        <input type="number" ng-model="assignment.score" class="form-control" value="6">
+        <button type="submit" ng-click="modifyAssignment(assignment._id, assignment.score)" class="btn btn-warning">Save Score Change</button>
       </form>
       <hr>
     </div>
