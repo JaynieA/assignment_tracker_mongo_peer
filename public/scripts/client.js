@@ -20,6 +20,7 @@ myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $h
       url: '/assignments',
       data: objectToSend
     }).then(function(response){
+      getAssignments();
       console.log(response);
     }); // end $http
   }; // end postAssignment
