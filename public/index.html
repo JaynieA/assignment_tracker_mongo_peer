@@ -5,8 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Assignment Tracker</title>
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
 </head>
-<body>
-  <h1>Assignment Tracker</h1>
+<body ng-app="myApp">
+  <main ng-controller="AssignmentController">
+    <h1>Assignment Tracker</h1>
+    <h2>Add assignment</h2>
+    <form>
+      <label>Assignment Name:</label>
+      <input type="text" ng-model="assignmentNameIn">
+      <label>Student:</label>
+      <input type="text" ng-model="studentNameIn">
+      <label>Score:</label>
+      <input type="number" ng-model="scoreIn">
+      <label>Date Completed</label>
+      <input type="date" ng-model="dateCompletedIn">
+      <button type="submit" ng-click="postAssignment()">Add Assignment</button>
+    </form>
+  </main>
+
 </body>
 </html>

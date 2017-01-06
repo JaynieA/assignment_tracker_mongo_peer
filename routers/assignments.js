@@ -10,14 +10,14 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   console.log('post route hit', req.body);
+  //create new assignment
   var newAssignment = new User({
     assignment_name: req.body.assignment_name,
     student_name: req.body.student_name,
     score: req.body.score,
     date_completed: new Date(req.body.date_string)
   });
-
-
+  //Save the assignment in the database
   newAssignment.save(function(err) {
     if (err) {
       console.log(err);
