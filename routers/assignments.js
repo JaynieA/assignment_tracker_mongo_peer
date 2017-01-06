@@ -3,18 +3,30 @@ var router = express.Router();
 var mongoose = require( 'mongoose' );
 var User = require( '../models/user');
 
-router.get('/', function(req, res) {
+router.get('/:id?', function(req, res) {
   console.log('get route hit');
   //find all assignments in the database
-  User.find({}, function(err, assignments) {
-    if (err) {
-      console.log(err);
-      res.sendStatus(500);
-    } else {
-      console.log(assignments);
-      res.send(assignments);
-    } // end else
-  }); // end find
+  if (req.params.id) {
+    User.find({_id: req.params.id}, function(err, assignments) {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      } else {
+        console.log(assignments);
+        res.send(assignments);
+      } // end else
+    }); // end find
+  } else {
+    User.find({}, function(err, assignments) {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      } else {
+        console.log(assignments);
+        res.send(assignments);
+      } // end else
+    }); // end find
+  }
 }); // end get
 
 router.post('/', function(req, res) {
