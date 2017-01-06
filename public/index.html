@@ -44,7 +44,7 @@
       <button type="button" ng-click="showModifyForm(assignment._id)" class="btn btn-warning">Modify Score</button>
       <form ng-show="showMe === assignment._id" class="form-inline">
         <label>Score:</label>
-        <input type="number" ng-model="assignment.score" class="form-control" value="6">
+        <input type="number" ng-model="assignment.score" class="form-control">
         <button type="submit" ng-click="modifyAssignment(assignment._id, assignment.score)" class="btn btn-warning">Save Score Change</button>
       </form>
       <hr>
