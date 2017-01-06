@@ -50,4 +50,8 @@ myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $h
     }); // end $http
   };
 
+  $scope.showModifyForm = function(index){
+    $scope.showMe = index;
+  };
+
 }]); // end controller

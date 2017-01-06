@@ -29,6 +29,10 @@
       <p>{{assignment.score}}</p>
       <p>{{assignment.date_completed}}</p>
       <button type="button" ng-click="deleteAssignment(assignment._id)">Delete this assignment</button>
+      <button type="button" ng-click="showModifyForm(assignment._id)">Modify this assignment</button>
+      <div ng-show="showMe === assignment._id">
+        <p>I have been shown!</p>
+      </div>
       <hr>
     </div>
   </main>
