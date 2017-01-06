@@ -7,34 +7,45 @@
   <title>Assignment Tracker</title>
   <script src="vendors/angular.min.js" charset="utf-8"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style/master.css">
 </head>
 <body ng-app="myApp">
-  <main ng-controller="AssignmentController">
-    <h1>Assignment Tracker</h1>
-    <h2>Add assignment</h2>
-    <form>
-      <label>Assignment Name:</label>
-      <input type="text" ng-model="assignmentNameIn">
-      <label>Student:</label>
-      <input type="text" ng-model="studentNameIn">
-      <label>Score:</label>
-      <input type="number" ng-model="scoreIn">
-      <label>Date Completed</label>
-      <input type="date" ng-model="dateCompletedIn">
-      <button type="submit" ng-click="postAssignment()">Add Assignment</button>
+  <main ng-controller="AssignmentController" class="container">
+    <h1 class="text-center">Assignment Tracker</h1>
+    <h2 class="text-center">Add Assignment</h2>
+    <form class="form-inline">
+      <div class="form-group">
+        <label>Assignment Name:</label>
+        <input type="text" ng-model="assignmentNameIn" class="form-control" placeholder="assignment name">
+      </div>
+      <div class="form-group">
+        <label>Student:</label>
+        <input type="text" ng-model="studentNameIn" class="form-control" placeholder="student name">
+      </div>
+      <div class="form-group">
+        <label>Score:</label>
+        <input type="number" ng-model="scoreIn" class="form-control" placeholder="score">
+      </div>
+      <div class="form-group">
+        <label>Date Completed</label>
+        <input type="date" ng-model="dateCompletedIn" class="form-control">
+      </div>
+      <button type="submit" ng-click="postAssignment()" class="btn btn-primary">Add Assignment</button>
     </form>
     <div ng-repeat="assignment in assignmentArray">
       <p>{{assignment.assignment_name}}</p>
       <p>{{assignment.student_name}}</p>
       <p>{{assignment.score}}</p>
-      <p>{{assignment.date_completed}}</p>
-      <button type="button" ng-click="deleteAssignment(assignment._id)">Delete this assignment</button>
-      <button type="button" ng-click="showModifyForm(assignment._id)">Modify this assignment</button>
-      <div ng-show="showMe === assignment._id">
+      <p>{{assignment.date_completed | date:'MM/dd/yyyy'}}</p>
+      <button type="button" ng-click="deleteAssignment(assignment._id)" class="btn btn-danger">Delete</button>
+      <button type="button" ng-click="showModifyForm(assignment._id)" class="btn btn-warning">Modify Score</button>
+      <form ng-show="showMe === assignment._id" class="form-inline">
         <label>Score:</label>
-        <input type="number" ng-model="assignment.modifiedScore">
-        <button type="submit" ng-click="modifyAssignment(assignment._id, assignment.modifiedScore)">Change Score</button>
-      </div>
+        <input type="number" ng-model="assignment.modifiedScore" class="form-control">
+        <button type="submit" ng-click="modifyAssignment(assignment._id, assignment.modifiedScore)" class="btn btn-warning">Change Score</button>
+      </form>
       <hr>
     </div>
   </main>
