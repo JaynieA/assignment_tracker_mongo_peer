@@ -61,4 +61,16 @@ router.delete('/:id', function(req, res){
   }); // end find
 });
 
+router.put('/:id/:score', function(req, res) {
+  console.log('put route hit', req.params.id, req.params.score);
+  User.update({_id: req.params.id}, {$set: {score: req.params.score}}, function(err) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    } // end else
+  }); // end find
+}); // end put
+
 module.exports = router;

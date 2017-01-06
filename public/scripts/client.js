@@ -60,6 +60,8 @@ myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $h
     $http({
       method: 'PUT',
       url: putString
+    }).then(function(response) {
+      getAssignments();
     });
     $scope.showMe = 0;
   };
