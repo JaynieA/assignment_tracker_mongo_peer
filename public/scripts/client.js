@@ -54,4 +54,14 @@ myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $h
     $scope.showMe = index;
   };
 
+  $scope.modifyAssignment = function(index, newScore){
+    var putString = '/assignments/' + index + '/' + newScore;
+    console.log('PUT URL:', putString);
+    $http({
+      method: 'PUT',
+      url: putString
+    });
+    $scope.showMe = 0;
+  };
+
 }]); // end controller

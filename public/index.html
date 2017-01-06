@@ -31,7 +31,9 @@
       <button type="button" ng-click="deleteAssignment(assignment._id)">Delete this assignment</button>
       <button type="button" ng-click="showModifyForm(assignment._id)">Modify this assignment</button>
       <div ng-show="showMe === assignment._id">
-        <p>I have been shown!</p>
+        <label>Score:</label>
+        <input type="number" ng-model="assignment.modifiedScore">
+        <button type="submit" ng-click="modifyAssignment(assignment._id, assignment.modifiedScore)">Change Score</button>
       </div>
       <hr>
     </div>
