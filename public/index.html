@@ -24,11 +24,11 @@
       <button type="submit" ng-click="postAssignment()">Add Assignment</button>
     </form>
     <div ng-repeat="assignment in assignmentArray">
-      <p>{{assignment._id}}</p>
       <p>{{assignment.assignment_name}}</p>
       <p>{{assignment.student_name}}</p>
       <p>{{assignment.score}}</p>
       <p>{{assignment.date_completed}}</p>
+      <button type="button" ng-click="deleteAssignment(assignment._id)">Delete this assignment</button>
       <hr>
     </div>
   </main>

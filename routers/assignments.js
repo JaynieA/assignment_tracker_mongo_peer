@@ -49,4 +49,16 @@ router.post('/', function(req, res) {
   }); // end newAssignment
 }); // end post
 
+router.delete('/:id', function(req, res){
+  console.log('Index to be deleted: ', req.params.id);
+  User.remove({_id: req.params.id}, function(err) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(204);
+    } // end else
+  }); // end find
+});
+
 module.exports = router;

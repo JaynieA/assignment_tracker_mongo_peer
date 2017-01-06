@@ -39,4 +39,15 @@ myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $h
 
   getAssignments();
 
+  $scope.deleteAssignment = function(index){
+    console.log('Deleting index', index);
+    $http({
+      method: 'DELETE',
+      url: '/assignments/' + index
+    }).then(function(response){
+      getAssignments();
+      console.log(response);
+    }); // end $http
+  };
+
 }]); // end controller
