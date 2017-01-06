@@ -5,7 +5,16 @@ var User = require( '../models/user');
 
 router.get('/', function(req, res) {
   console.log('get route hit');
-  res.sendStatus(200);
+  //find all assignments in the database
+  User.find({}, function(err, assignments) {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      console.log(assignments);
+      res.send(assignments);
+    } // end else
+  }); // end find
 }); // end get
 
 router.post('/', function(req, res) {

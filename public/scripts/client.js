@@ -5,7 +5,7 @@ var myApp = angular.module('myApp', []);
 //controller
 myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $http) {
   console.log('NG');
-
+  //post assignemnts
   $scope.postAssignment = function() {
     var objectToSend = {
       assignment_name: $scope.assignmentNameIn,
@@ -23,5 +23,19 @@ myApp.controller('AssignmentController', ['$scope', '$http', function($scope, $h
       console.log(response);
     }); // end $http
   }; // end postAssignment
+
+  //get assignments
+  function getAssignments() {
+    console.log('in getAssignments');
+    $http({
+      method: 'GET',
+      url: '/assignments'
+    }).then(function(response) {
+      $scope.assignmentArray = response.data;
+      console.log($scope.assignmentArray);
+    }); // end $http
+  } // end getAssignments
+
+  getAssignments();
 
 }]); // end controller

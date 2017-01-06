@@ -23,6 +23,9 @@
       <input type="date" ng-model="dateCompletedIn">
       <button type="submit" ng-click="postAssignment()">Add Assignment</button>
     </form>
+    <div ng-repeat="assignment in assignmentArray">
+      <p>{{assignment}}</p>
+    </div>
   </main>
 
 </body>
